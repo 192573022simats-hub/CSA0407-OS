@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int request[20], n, head;
+    int i, total = 0;
+
+    printf("Enter number of requests: ");
+    scanf("%d", &n);
+
+    printf("Enter request queue: ");
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &request[i]);
+
+    printf("Enter initial head position: ");
+    scanf("%d", &head);
+
+    for(i = 0; i < n; i++)
+    {
+        total += abs(head - request[i]);
+        head = request[i];
+    }
+
+    printf("Total Head Movement = %d\n", total);
+
+    return 0;
+}
