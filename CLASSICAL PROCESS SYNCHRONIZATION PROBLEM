@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int buffer = 0;
+
+void producer() {
+    if(buffer == 0) {
+        buffer = 1;
+        printf("Producer produced item\n");
+    } else
+        printf("Buffer is full\n");
+}
+
+void consumer() {
+    if(buffer == 1) {
+        buffer = 0;
+        printf("Consumer consumed item\n");
+    } else
+        printf("Buffer is empty\n");
+}
+
+int main() {
+    producer();
+    consumer();
+    consumer();
+    producer();
+
+    return 0;
+}
